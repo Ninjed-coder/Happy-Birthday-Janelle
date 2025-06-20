@@ -402,4 +402,28 @@ p {
   color: blue;
  }
 }
-
+@media (max-width: 500px) {
+  .birthdayCard,
+  .card,
+  .cardFront,
+  .cardInside {
+    width: 90vw !important;
+    max-width: 340px;
+    min-width: 200px;
+    height: auto !important;
+    min-height: 250px;
+  }
+  .cardFront,
+  .cardInside {
+    height: auto !important;
+  }
+  .card-back img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  #desc {
+    font-size: 1rem !important;
+    height: auto !important;
+    max-height: 50vw;
+  }
+}
