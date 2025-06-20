@@ -404,28 +404,15 @@ p {
 }
 
 @media screen and (max-width: 820px) {
-  .body:hover {
-    transform: translate(calc(-100% + 210px), -50%);
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .body:hover {
-    transform: translate(calc(-100% + 320px), -50%);
-  }
-}
-@media screen and (max-width: 820px) {
   .body {
     position: absolute;
     left: 50%;
     top: 50%;
-    /* Center the card on small screens */
-    transform: translate(-50%, -50%) scale(0.9);
-    /* Slightly larger than 0.8 for better mobile visibility */
+    transform: translate(-50%, -50%) scale(1);
     width: 100vw;
     min-height: 100vh;
-    z-index: 999;
     overflow: visible;
+    z-index: 10;
   }
 
   .birthdayCard,
@@ -433,44 +420,41 @@ p {
   .cardFront,
   .card-back,
   .cardInside {
-    width: 90vw !important;
-    max-width: 320px !important;
-    height: auto;
-    min-height: 280px;
-    /* Makes sure the card doesn't overflow the screen */
+    width: 160px !important;
+    height: 210px !important;
+    min-width: 0;
+    min-height: 0;
+    max-width: 95vw;
+    max-height: 80vh;
+    overflow: visible;
     margin: 0 auto;
     box-sizing: border-box;
   }
 
-  .birthdayCard {
-    height: 280px;
-  }
-
   .plate {
-    left: 18vw;
-    top: 240px;
-    width: 120px;
-    max-width: 60vw;
+    left: 20px;
+    top: 190px;
+    width: 60px;
+    min-width: 0;
+    max-width: 100px;
   }
 
   .cake {
-    left: 10vw;
+    left: 10px;
   }
 
   .plate:before,
   .plate:after,
   .flame {
-    left: 20vw;
-    /* Center flame above cake for variable width */
+    left: 28px;
   }
 
   .flame {
-    top: -70px;
+    top: -40px;
   }
 
-  /* Disable hover slide on smaller screens */
   .body:hover {
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
@@ -482,9 +466,8 @@ p {
     transform: translate(-50%, -50%) scale(1);
     width: 100vw;
     min-height: 100vh;
-    z-index: 9999;
     overflow: visible;
-    /* Ensures card is always visible and centered */
+    z-index: 20;
   }
 
   .birthdayCard,
@@ -492,53 +475,40 @@ p {
   .cardFront,
   .card-back,
   .cardInside {
-    width: 98vw !important;
-    max-width: 98vw !important;
-    min-width: 160px;
-    height: auto;
-    min-height: 210px;
+    width: 130px !important;
+    height: 170px !important;
+    min-width: 0;
+    min-height: 0;
+    max-width: 98vw;
+    max-height: 80vh;
+    overflow: visible;
     margin: 0 auto;
     box-sizing: border-box;
   }
 
-  .birthdayCard {
-    height: 210px;
-  }
-
   .plate {
-    left: 10vw;
-    top: 170px;
-    width: 60vw;
-    min-width: 60px;
-    max-width: 80vw;
+    left: 15px;
+    top: 145px;
+    width: 45px;
+    min-width: 0;
+    max-width: 80px;
   }
 
   .cake {
-    left: 6vw;
+    left: 8px;
   }
 
   .plate:before,
   .plate:after,
   .flame {
-    left: 24vw;
+    left: 18px;
   }
 
   .flame {
-    top: -50px;
+    top: -28px;
   }
 
   .body:hover {
     transform: translate(-50%, -50%) scale(1);
   }
-}
-
-/* Extra: Always make sure card is above other content when open */
-.card.open, .card.active, .birthdayCard.open {
-  z-index: 99999 !important;
-  position: relative;
-}
-
-/* Optional: Prevent scrolling when card is open on mobile */
-body.card-open {
-  overflow: hidden;
 }
