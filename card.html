@@ -1,63 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="design1.css" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Best of wishes and Message</title>
+    <link rel="stylesheet" href="design1.css" />
   </head>
   <body>
-    <h2>Click this card</h2>
-   <div class ="overlay"></div>
-    <div class="body">
-      <div class="birthdayCard">
-        <div class="card">
-          <div class="card-inner">
-            <div class="cardFront">
-              <h3 id="title" class="happy">HAPPY-BIRTHDAY Janelle</h3>
-              <div class="balloons">
-                <div class="balloonOne"></div>
-                <div class="balloonTwo"></div>
-                <div class="balloonThree"></div>
-                <div class="balloonFour"></div>
-              </div>
-              <div class="plate">
-                <div class="cake"></div>
-                <div class="flame"></div>
-              </div>
-            </div>
-            <div class="card-back">
-              <img src="IMG/us.jpg" loading="lazy" />
-            </div>
-          </div>
+    <div class="overlay"></div>
+    <div class="card-container" id="cardContainer">
+      <div class="big-card" id="bigCard">
+        <div class="card-cover" id="cardCover">
+          <span class="card-instruction">Click this card</span>
         </div>
-
-        <div class="cardInside">
-          <h3 id="title" class="back">HAPPY BIRTHDAY!</h3>
-          <p id="title">Dear love</p>
-          <p id="desc">
-            I just wanna say that i wish you the best wishes, i hope you live a
-            long life. I wish that you achieve the things you want in life. I
-            hope that your day is filled with lots of love and joy. and hope
-            that all your wishes came true. I love you nel. Happy Birthday!
-          </p>
-          <p id="name" class="name">Jedrick</p>
+        <div class="card-content" id="cardContent">
+          <img src="IMG/us.jpg" loading="lazy" class="card-image" alt="Birthday" />
+          <div class="card-message">
+            <h2>HAPPY BIRTHDAY Janelle!</h2>
+            <p>Dear love,</p>
+            <p>
+              I just wanna say that I wish you the best wishes, Every single day i love you. 
+              I wish that you achieve the things you want in life. I hope that your day is filled 
+              with lots of happiness and love from people because you are a special girl for me, and hope that all your wishes come true. I love you nel. 
+              Happy Birthday!
+            </p>
+            <p class="name">Jedrick</p>
+          </div>
         </div>
       </div>
     </div>
-
     <audio id="song" loop>
       <source src="audio/song.mp3" type="audio/mp3" />
     </audio>
     <script>
-      window.addEventListener(
-      "click",
-      function(){
-      const audio = document.getElementById("song");
-        audio.play()
-      },
-    )
-      {once: true}
+      
+      document.getElementById('bigCard').onclick = function() {
+        document.getElementById('cardContainer').classList.add('opened');
+        document.getElementById('song').play();
+      }
     </script>
   </body>
 </html>
