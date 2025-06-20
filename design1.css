@@ -1,5 +1,5 @@
 body, html {
- overflow-y: hidden;
+ overflow-y: auto;
  overflow-x: auto;
  transition: all .8s;
 }
