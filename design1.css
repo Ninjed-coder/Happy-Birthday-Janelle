@@ -1,13 +1,14 @@
-
-body, html {
-  overflow-x: hidden;
-  overflow-y: auto;
-  transition: all .8s;
-}
-body {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url("IMG/heart1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,6 +16,7 @@ body {
   position: relative;
   overflow: hidden;
   background-attachment: fixed;
+  transition: all .8s;
 }
 
 .overlay {
@@ -41,15 +43,9 @@ body {
 }
 
 .body {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 0;
+  position: relative;
+  margin: 0;
   z-index: 3;
-  width: 100vw;
-  max-width: 100vw;
-  min-width: 0;
 }
 
 h2 {
@@ -67,11 +63,11 @@ h2 {
   max-height: 450px;
   min-height: 280px;
   margin: 0 auto;
-  left: 50%;
-  transform: translateX(-50%);
   cursor: pointer;
   perspective: 2500px;
   transition: 1s;
+  left: 0;
+  transform: none;
 }
 
 #UrlError{
@@ -79,7 +75,10 @@ h2 {
   color: red;
 }
 
-.card, .cardFront, .card-back, .cardInside {
+.card,
+.cardFront,
+.card-back,
+.cardInside {
   width: 100%;
   height: 100%;
 }
@@ -89,7 +88,7 @@ h2 {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transform-origin: left; 
+  transform-origin: left;
   transition: transform 0.8s;
   z-index: 5;
 }
@@ -106,12 +105,12 @@ h2 {
 
 .card-back {
   background: white;
-  transform: rotateY(180deg); 
+  transform: rotateY(180deg);
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid gold;
-  border-right: 2px dashed gold;  
+  border-right: 2px dashed gold;
   background: linear-gradient(280deg, #f18396, #a500f1);
 }
 
@@ -327,7 +326,7 @@ h2 {
   top: 0;
   box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
   border: 2px solid gold;
-  border-left: 2px dashed gold; 
+  border-left: 2px dashed gold;
   overflow-y: auto;
   max-height: 60vh;
 }
@@ -343,8 +342,8 @@ p {
   position: relative;
   height: 210px;
   overflow-y: scroll;
-  -ms-overflow-style: none;  
-  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 #desc::-webkit-scrollbar {
   display: none;
@@ -406,15 +405,6 @@ p {
     max-width: 99vw;
     max-height: 80vh;
   }
-  .body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    max-width: 100vw;
-    min-width: 0;
-  }
 }
 
 @media screen and (max-width: 560px) {
@@ -425,14 +415,5 @@ p {
     min-height: 200px;
     max-width: 100vw;
     max-height: 80vh;
-  }
-  .body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    max-width: 100vw;
-    min-width: 0;
   }
 }
