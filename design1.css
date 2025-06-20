@@ -1,419 +1,143 @@
-html, body {
-  height: 100%;
+body, html {
   margin: 0;
   padding: 0;
-}
-
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url("IMG/heart1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  background-attachment: fixed;
-  transition: all .8s;
+  height: 100vh;
+  background: url("IMG/heart1.jpg") center center/cover no-repeat;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
   background-image: url("IMG/confetti.gif");
   background-repeat: repeat;
   background-size: contain;
-  pointer-events: none;
+  z-index: 1;
   animation: floatFlowers 10s linear infinite;
-  z-index: 1;
 }
-
 @keyframes floatFlowers {
-  0% {
-    background-position: 0 -100%;
-  }
-  100% {
-    background-position: 0 100%;
-  }
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 100%; }
 }
 
-.body {
-  position: relative;
-  margin: 0;
-  z-index: 3;
-}
-
-h2 {
-  animation: 1s blink linear infinite;
+.card-container {
   display: flex;
-  justify-content: center;
-}
-
-.birthdayCard {
-  position: relative;
-  width: 90vw;
-  max-width: 320px;
-  min-width: 220px;
-  height: 55vw;
-  max-height: 450px;
-  min-height: 280px;
-  margin: 0 auto;
-  cursor: pointer;
-  perspective: 2500px;
-  transition: 1s;
-  left: 0;
-  transform: none;
-}
-
-#UrlError{
-  margin: 100px 30px;
-  color: red;
-}
-
-.card,
-.cardFront,
-.card-back,
-.cardInside {
-  width: 100%;
-  height: 100%;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform-origin: left;
-  transition: transform 0.8s;
-  z-index: 5;
-}
-
-.cardFront,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  top: 0;
-  left: 0;
-}
-
-.card-back {
-  background: white;
-  transform: rotateY(180deg);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  border: 2px solid gold;
-  border-right: 2px dashed gold;
-  background: linear-gradient(280deg, #f18396, #a500f1);
+  justify-content: center;
+  min-height: 100vh;
 }
 
-.card-back img {
-  width: 95%;
-  height: 95%;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.cardFront {
-  position: absolute;
-  background-color: #F7879A;
-  width: 100%;
-  height: 100%;
+.big-card {
+  width: 96vw;
+  max-width: 420px;
+  min-width: 250px;
+  background: rgba(255, 192, 203, 0.95); /* Pinkish background for the card */
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.14);
   overflow: hidden;
-  transform-origin: left;
-  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .2), 30px 0 50px rgba(0, 0, 0, 0.4);
-  transition: .6s;
-  border: 2px solid gold;
-}
-
-.happy {
-  font-family: Tahoma, sans-serif;
-  text-align: center;
-  margin: 30px;
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  transition: .1s;
-}
-
-.balloons {
-  position: absolute;
-}
-
-.balloonOne,
-.balloonTwo,
-.balloonThree,
-.balloonFour {
-  position: absolute;
-  width: 85px;
-  height: 95px;
-  border-radius: 50%;
-}
-
-.balloonOne {
-  background-color: rgb(239, 71, 111, 0.7);
-  left: -10px;
-  top: 50px;
-}
-
-.balloonTwo {
-  background-color: rgb(6, 214, 160, 0.7);
-  left: 50px;
-  top: 20px;
-}
-
-.balloonThree {
-  background-color: rgb(255, 209, 102, 0.7);
-  left: 110px;
-  top: 50px;
-}
-
-.balloonFour {
-  background-color: rgb(17, 138, 178, 0.7);
-  left: 170px;
-  top: 20px;
-}
-
-.balloonOne:before,
-.balloonTwo:before,
-.balloonThree:before,
-.balloonFour:before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 155px;
-  background-color: #ffd166;
-  top: 95px;
-  left: 43px;
-}
-
-.balloonOne:after,
-.balloonTwo:after,
-.balloonThree:after,
-.balloonFour:after {
-  content: "";
-  position: absolute;
-  border-right: 7px solid transparent;
-  border-left: 7px solid transparent;
-  top: 94px;
-  left: 37px;
-}
-
-.balloonOne:after {
-  border-bottom: 10px solid #ef476f;
-}
-
-.balloonTwo:after {
-  border-bottom: 10px solid #06d6a0;
-}
-
-.balloonThree:after {
-  border-bottom: 10px solid #ffd166;
-}
-
-.balloonFour:after {
-  border-bottom: 10px solid #118ab2;
-}
-
-.plate {
-  position: absolute;
-  width: 130px;
-  height: 5px;
-  background-color: #843a24;
-  left: 60px;
-  top: 320px;
-}
-
-.cake {
-  position: absolute;
-  overflow: hidden;
-  width: 100px;
-  height: 50px;
-  background-color: #f0199a;
-  border-radius: 10px 10px 0 0;
-  top: -50px;
-  left: 15px;
-  box-shadow: inset 0 -15px #f9824f, inset 0 15px #472511;
-}
-
-.cake:before {
-  content: "";
-  position: absolute;
-  background-color: #432818;
-  width: 10px;
-  height: 20px;
-  top: 5px;
-  border-radius: 20px;
-  box-shadow: 10px 5px #f0acd5, 20px 0px #432818, 30px 2px #f15bb5,
-    40px 5px #432818, 50px 5px #dba8c7, 60px 0px #432818, 70px 5px #f15bb5,
-    80px 5px #432818, 90px 5px #ca9eb8;
-}
-
-.plate:before {
-  content: "";
-  position: absolute;
-  background: repeating-linear-gradient(
-    -45deg,
-    #7300ff,
-    #7300ff 3px,
-    #00ffdd 3px,
-    #00f5d4 6px
-  );
-  width: 7px;
-  height: 25px;
-  top: -75px;
-  left: 61px;
-}
-
-.plate:after {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 5px;
-  background-color: #333;
-  top: -80px;
-  left: 64px;
-}
-
-.flame {
-  position: absolute;
-  background-color: #ff5100;
-  border: 1px solid #ffa500;
-  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
-  transform: rotate(-45deg);
-  width:15px;
-  height:15px;
-  opacity:0.7;
-  top:-93px;
-  left:56px;
-  box-shadow: 0px 0px 2px 2px #ff652edb;
-  animation: flame 30ms 200ms ease-in infinite alternate;
-}
-
-@keyframes flame {
-  0%{
-    transform: rotate(-45deg);
-  }
-  20%{
-    transform: rotate(-50deg);
-  }
-  40%{
-    transform: rotate(-44deg);
-  }
-  60%{
-    transform: rotate(-45deg) scaleY(1.04);
-  }
-  80%{
-    transform: rotate(-47deg) scaleY(0.92);
-  }
-  100%{
-    transform: rotate(-50deg);
-  }
-}
-
-.cardInside {
-  position: absolute;
-  background-color: #F7879A;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
-  border: 2px solid gold;
-  border-left: 2px dashed gold;
-  overflow-y: auto;
-  max-height: 60vh;
-}
-
-p {
-  font-family: cursive;
-  margin: 2px 8px 8px 18px;
-  color: #000;
-}
-
-#desc{
-  font-size: medium;
   position: relative;
-  height: 210px;
-  overflow-y: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-#desc::-webkit-scrollbar {
-  display: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
 }
 
-.name {
-  position: fixed;
-  right: 0px;
+.big-card:active,
+.card-container.opened .big-card {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+/* Pinkish background for the click overlay */
+.card-cover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #ffb6c1 0%, #ff69b4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: opacity 0.5s;
+}
+
+.card-container.opened .card-cover {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-instruction {
+  font-size: 1.4em;
+  color: #fff;
+  text-shadow: 0 2px 5px #333;
+  font-weight: bold;
+}
+
+.card-content {
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-container.opened .card-content {
+  opacity: 1;
+  pointer-events: auto;
+  padding: 18px 10px 22px 10px;
+}
+
+
+.card-image {
+  width: 100%;
+  max-height: 450px;
+  min-height: 250px;
+  height: 65vw;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 16px;
+}
+
+.card-message {
+  font-size: 1em;
+  color: #333;
+  text-align: center;
+  font-family: 'Cursive', Tahoma, sans-serif;
+  background: linear-gradient(120deg, #ffdde4 0%, #ffd1ea 100%);
+  padding: 18px 10px 14px 10px;
+  border-radius: 0 0 14px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-message h2 {
+  margin: 0 0 12px 0;
+  font-family: Tahoma, sans-serif;
+  color: #a500f1;
+}
+.card-message p {
+  margin: 8px 0;
+}
+
+.card-message .name {
+  font-family: monospace;
   text-align: right;
   color: #333;
   text-decoration: underline;
+  margin-top: 20px;
 }
 
-.back {
-  font-family: Tahoma, sans-serif;
-  color: #333;
-  text-align: center;
-  margin: 20px;
-  outline-color: #333;
-  outline-style: dashed;
-}
-
-.birthdayCard:hover {
-  transform: perspective(2500px) rotate(5deg);
-}
-
-.birthdayCard:hover .card-inner {
-  transform: rotateY(-160deg);
-}
-
-@keyframes blink {
-  0% {
-    color: white;
+/* Responsive */
+@media (max-width: 500px) {
+  .big-card {
+    max-width: 400px;
+    min-width: 160px;
   }
-  20% {
-    color: yellow;
+  .card-message {
+    font-size: 0.97em;
   }
-  40% {
-    color: greenyellow;
-  }
-  60% {
-    color: red;
-  }
-  80% {
-    color: hotpink;
-  }
-  100% {
-    color: blue;
-  }
-}
-
-/* Responsive fixes */
-@media screen and (max-width: 820px) {
-  .birthdayCard {
-    width: 98vw;
-    height: 65vw;
-    min-width: 200px;
-    min-height: 250px;
-    max-width: 99vw;
-    max-height: 80vh;
-  }
-}
-
-@media screen and (max-width: 560px) {
-  .birthdayCard {
-    width: 98vw;
-    height: 65vw;
-    min-width: 180px;
-    min-height: 200px;
-    max-width: 100vw;
-    max-height: 80vh;
+  .card-image {
+    max-height: 300px;
+    min-height: 160px;
+    height: 95vw;
   }
 }
